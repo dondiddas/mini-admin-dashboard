@@ -2,7 +2,7 @@
 @section('title', 'Student Details')
 
 @section('content')
-<h3>Student Details</h3>
+<h3 class="text-white">Student Details</h3>
 
 <div class="card p-3 shadow-sm" style="max-width:400px;">
   <p><b>Name:</b> {{ $student->name }}</p>

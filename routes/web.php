@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ProfileController;
@@ -25,5 +26,18 @@ Route::middleware(['auth'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
+Route::middleware(['auth'])->group(function () {
+
+    // Admin registration form
+    Route::get('/dashboard/register', [RegisterController::class, 'showAdminForm'])
+        ->name('dashboard.register');
+
+    // Store new user
+    Route::post('/dashboard/register', [RegisterController::class, 'adminRegister'])
+        ->name('dashboard.register.store');
+});
+
 
 require __DIR__.'/auth.php';

@@ -4,7 +4,7 @@
 @section('content')
 <h3 class="mb-4">Students</h3>
 
-<a href="{{ route('dashboard') }}" class="btn btn-secondary btn-sm mb-3">← Back to Dashboard</a>
+<a href="{{ route('dashboard') }}" class="btn bg-light btn-sm mb-3">← Back to Dashboard</a>
 
 {{-- Search Form --}}
 <form method="GET" action="{{ route('students.index') }}" class="mb-3">
@@ -26,8 +26,8 @@
 
 {{-- Students Table --}}
 @if (!$students->isEmpty())
-<table class="table table-bordered table-hover align-middle">
-    <thead class="table-light">
+<table class="table table-bordered table-hover align-middle table-dark">
+    <thead class="table-dark">
         <tr>
             <th>Name</th>
             <th>Email</th>
@@ -40,7 +40,7 @@
             <td>{{ $s->name }}</td>
             <td>{{ $s->email }}</td>
             <td>
-                <a href="{{ route('students.show', $s->id) }}" class="btn btn-sm btn-info">
+                <a href="{{ route('students.show', $s->id) }}" class="btn btn-sm bg-light">
                     View
                 </a>
             </td>
