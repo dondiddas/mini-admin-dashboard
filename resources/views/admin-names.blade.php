@@ -4,8 +4,9 @@
 
 @section('content')
     <div class="container mt-4">
-        <h3 class="mb-3 text-white">Registered Admin Accounts</h3>
+        <h3 class="mb-3 text-white">Registered Admin Accounts ({{ $names->count() }})</h3>
         <div class="card bg-dark border-white">
+            
             <div class="card-body">
                 @if ($names->isEmpty())
                     <p class="text-muted">No admin accounts found.</p>
