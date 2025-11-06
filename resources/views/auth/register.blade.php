@@ -10,7 +10,7 @@
             <div class="card-body bg-dark">
                 <h4 class="text-center text-white mb-4">Register</h4>
 
-                <form method="POST" action="{{ route('register') }}" class="text-white">
+                <form method="POST" action="{{ route('dashboard.register.store') }}" class="text-white">
                     @csrf
 
                     <div class="mb-3">

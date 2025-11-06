@@ -4,6 +4,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RetrieveAdminName;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -37,7 +38,12 @@ Route::middleware(['auth'])->group(function () {
     // Store new user
     Route::post('/dashboard/register', [RegisterController::class, 'adminRegister'])
         ->name('dashboard.register.store');
+
+     Route::get('/dashboard/admin-names',[RetrieveAdminName::class,'getAdminNames'])
+        ->name('getAdminAccount');
+
 });
+
 
 
 require __DIR__.'/auth.php';

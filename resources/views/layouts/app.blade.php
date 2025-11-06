@@ -29,10 +29,10 @@
 
 /* Active state */
 .active-link {
-  background: #0d6efd;
-  color: #fff !important;
+  background: #fb7406;
+  color: #fff;
   font-weight: 600;
-  box-shadow: 0 0 8px rgba(13,110,253,0.4);
+  box-shadow: 0 0 15px rgba(255, 117, 3, 0.4);
 }
 
 </style>

@@ -15,6 +15,14 @@
       </a>
     </li>
 
+   <li class="nav-item mb-2">
+  <a class="nav-link sidebar-link {{ request()->is('dashboard/admin-names') ? 'active-link' : '' }}"
+     href="{{ route('getAdminAccount') }}">
+     Admin Accounts
+  </a>
+</li>
+
+
     <li class="nav-item mb-2">
       <a class="nav-link sidebar-link {{ request()->is('dashboard/register') ? 'active-link' : '' }}"
          href="{{ route('dashboard.register') }}">
