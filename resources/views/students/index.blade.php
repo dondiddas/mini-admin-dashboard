@@ -2,9 +2,26 @@
 @section('title', 'Students')
 
 @section('content')
-<h3 class="mb-4">Students</h3>
+<h3 class="mb-4 fw-semibold">Students</h3>
 
-<a href="{{ route('dashboard') }}" class="btn bg-light btn-sm mb-3">← Back to Dashboard</a>
+{{-- Top Action Bar --}}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <a href="{{ route('dashboard') }}" class="btn bg-light btn-sm">
+        ← Back
+    </a>
+
+    <a href="{{ route('students.create') }}" class="btn btn-success">
+        + Add New Student
+    </a>
+</div>
+
+{{-- Success Message --}}
+@if(session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+@endif
 
 {{-- Search Form --}}
 <form method="GET" action="{{ route('students.index') }}" class="mb-3">
@@ -28,25 +45,30 @@
 @if (!$students->isEmpty())
 <table class="table table-bordered table-hover align-middle table-dark">
     <thead class="table-dark">
-        <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th width="120">Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach($students as $s)
-        <tr>
-            <td>{{ $s->name }}</td>
-            <td>{{ $s->email }}</td>
-            <td>
-                <a href="{{ route('students.show', $s->id) }}" class="btn btn-sm bg-light">
-                    View
-                </a>
-            </td>
-        </tr>
-        @endforeach
-    </tbody>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Course</th>
+        <th>Section</th>
+        <th width="120">Action</th>
+    </tr>
+</thead>
+
+<tbody>
+@foreach($students as $s)
+    <tr>
+        <td>{{ $s->name }}</td>
+        <td>{{ $s->email }}</td>
+        <td>{{ $s->course }}</td>
+        <td>{{ $s->section }}</td>
+        <td>
+            <a href="{{ route('students.show', $s->id) }}" class="btn btn-sm bg-primary text-white">
+                View
+            </a>
+        </td>
+    </tr>
+@endforeach
+</tbody>
 </table>
 
 {{-- Pagination --}}

@@ -6,11 +6,14 @@
 
 <div class="row g-3">
     <div class="col-md-4">
-        <div class="card shadow-sm text-center p-3">
+    <a href="{{ route('students.index') }}" class="text-decoration-none text-dark">
+        <div class="card shadow-sm text-center p-3 hover-card">
             <h6 class="text-muted">Total Students</h6>
             <h2 class="fw-bold">{{ $totalStudents }}</h2>
         </div>
-    </div>
+    </a>
+</div>
+
 
     <div class="col-md-4">
         <div class="card shadow-sm text-center p-3">
@@ -22,5 +25,9 @@
 
 <a href="{{ route('students.index') }}" class="btn btn-primary mt-4">
     View Students
+</a>
+
+<a href="{{ route('students.create') }}" class="btn btn-success mt-4">
+    + Add New Student
 </a>
 @endsection
